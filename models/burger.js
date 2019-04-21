@@ -4,8 +4,8 @@ var orm = require('../config/orm');
 // Create the burger object
 var burger = {
   // Select all burger table entries
-  all: function(cb) {
-    orm.all('burgers', function(res) {
+  selectAll: function(cb) {
+    orm.selectAll('burgers', function(res) {
       cb(res);
     });
   },
@@ -27,3 +27,4 @@ var burger = {
 
 // Export the database functions for the controller (burgerController.js).
 module.exports = burger;
+

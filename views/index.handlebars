@@ -1,64 +1,55 @@
-
 <div class="container">
 
-			<h1> Eat-Da-Burger! </h1>
-		
-    <main>
+	<h1> Eat-Da-Burger! </h1>
+
+	<main>
 		<div class="container">
-	
-      
+
+
 			<div class="row">
-					<div class="col-sm-6 text-center" class="task">
-				<h2>Available Burgers</h2>
-			
-			  {{#each burgers}}
-			  	{{#unless this.devoured}}
-				<div class="col-sm-12 text-center">
-					 <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-                <button type="submit" class='burgerAvailable btn btn-warning'> {{this.burger_name}}</button>
-           </form>
-				</div>
-					{{/unless}}
-        {{/each}}
-			
-			</div>
+				<div class="col-sm-6 text-center" class="task">
+					<h2>Available Burgers</h2>
 
-			
-			<div class="col-sm-6 text-center" class="task">
-	
-      <h2>Devoured Burger!</h2>
 					{{#each burgers}}
-          {{#if this.devoured}}
-            <div class='burgerEaten'>
-              <div>
-                {{this.burger_name}}
-              </div>
-            </div>
-          {{/if}}
-        {{/each}}
+					{{#unless this.devoured}}
+					<div class="col-sm-12 text-center">
+						<form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+							<button type="submit" class='burgerAvailable btn btn-warning'> {{this.burger_name}}</button>
+						</form>
+					</div>
+					{{/unless}}
+					{{/each}}
 
-			  {{!-- {{#each burgers}}
-			  	{{#if this.devoured}}
-			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
-				{{/if}}
-			  {{/each}} --}}
+				</div>
+
+
+				<div class="col-sm-6 text-center" class="task">
+
+					<h2>Devoured Burger!</h2>
+					{{#each burgers}}
+					{{#if this.devoured}}
+					<div class='burgerEaten'>
+						<div>
+							{{this.burger_name}}
+						</div>
+					</div>
+					{{/if}}
+					{{/each}}
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
-</main>
+	</main>
 
 	<div class="row">
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4 text-center enter_section">
 			<form action="/burgers" method="POST">
-      <input type="text" id="name" class="input-group mb-3" name="burger_name" placeholder="Burger Name"></br>
-      <button type="submit" class ="btn btn-primary"class="addBurgerButton">Add The Burger</button>
-    </form>
+				<input type="text" id="name" class="input-group mb-3" name="burger_name" placeholder="Burger Name"></br>
+				<button type="submit" class="btn btn-primary" class="addBurgerButton">Add The Burger</button>
+			</form>
 			<p>Enter a burger you want to eat Click the "Submit" button.</p>
 		</div>
 		<div class="col-sm-4"></div>
 
+	</div>
 </div>
-</div>
-
-
